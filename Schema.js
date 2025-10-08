@@ -1,0 +1,17 @@
+//schema for server side validation
+
+const Joi = require("joi");
+
+const pschema = Joi.object({
+  name: Joi.string().required(),
+  img: Joi.string().required(),
+  price: Joi.string().min(0).required(),
+  desc: Joi.string().required(),
+});
+
+const rschema = Joi.object({
+  rating: Joi.string().min(0).max(5).required(),
+  comment: Joi.string().required(),
+});
+
+module.exports = { pschema, rschema };
